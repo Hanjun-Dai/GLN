@@ -24,7 +24,7 @@ Note that by default the cuda ops will not be enabled on Mac OSX.
 
 We provide the raw datasets, the cooked (data after preprocessing) datasets, and also the trained model dumps in a dropbox folder. 
 
-`https://www.dropbox.com/sh/6ideflxcakrak10/AADTbFBC0F8ax55-z-EDgrIza?dl=0`
+[`https://www.dropbox.com/sh/6ideflxcakrak10/AADTbFBC0F8ax55-z-EDgrIza?dl=0`](https://www.dropbox.com/sh/6ideflxcakrak10/AADTbFBC0F8ax55-z-EDgrIza?dl=0)
 
 The cooked dataset is pretty large. You can also simply download the raw datasets only, and use the script provided in this repo for preprocessing. You don't have to have a dropbox to download, and the result folder doesn't have to be in your dropbox. The only thing needed is to create a symbolic link named `dropbox` and put it in the right place.
 
