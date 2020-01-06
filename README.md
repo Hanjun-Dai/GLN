@@ -3,7 +3,9 @@ Implementation of Retrosynthesis Prediction with Conditional Graph Logic Network
 
 https://papers.nips.cc/paper/9090-retrosynthesis-prediction-with-conditional-graph-logic-network
 
-# Install
+# Setup
+
+## Install package
 
 This package requires the **rdkit** and **pytorch**.
 
@@ -17,6 +19,41 @@ After the above preparation, simply navigate to the project root folder and inst
     pip install -e .
 
 Note that by default the cuda ops will not be enabled on Mac OSX.
+
+## Dropbox
+
+We provide the raw datasets, the cooked (data after preprocessing) datasets, and also the trained model dumps in a dropbox folder. 
+
+`https://www.dropbox.com/sh/6ideflxcakrak10/AADTbFBC0F8ax55-z-EDgrIza?dl=0`
+
+The cooked dataset is pretty large. You can also simply download the raw datasets only, and use the script provided in this repo for preprocessing. You don't have to have a dropbox to download, and the result folder doesn't have to be in your dropbox. The only thing needed is to create a symbolic link named `dropbox` and put it in the right place.
+
+Finally the folder structure will look like this: 
+
+```
+GLN
+|___gln  # source code
+|   |___common # common implementations
+|   |___...
+|
+|___setup.py 
+|
+|___dropbox  # data, trained model dumps and cooked data, this can be a symbolic link
+    |___schneider50k # raw data
+    |___|__raw_train.csv
+    |   |__...
+    |
+    |___cooked_schneider50k # cooked data
+    |___schneider50k.ckpt # trained model dump
+...
+```
+
+# Preprocessing
+
+If you download the cooked data in the previous step, you can simply skip this step.
+
+Our paper mainly focused on schneider50k dataset. The raw data and data split is the same as https://github.com/connorcoley/retrosim/blob/master/retrosim/data/get_data.py
+
 
 # Reference
 
