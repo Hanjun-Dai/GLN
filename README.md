@@ -78,7 +78,7 @@ Please specify the dataset name, as well as #cpu threads (the more the better).
 
 1. **Filter template**
 
-One can filter out uncommon templates using this script. We didn't filter out any template in our paper, though a careful selection of templates may further improve the performance.
+One can filter out uncommon templates using this script. **We didn't filter out any template in our paper**, though a careful selection of templates may further improve the performance.
 
 Please specify the dataset name, template name (arbitrary one is fine), and possibly the minimum number of occurance one template needs to have in order to be included (default=1)
 
@@ -86,6 +86,33 @@ Please specify the dataset name, template name (arbitrary one is fine), and poss
 ./step1_filter_template.sh
 ```
 
+2. **Get subgraph SMARTS**
+
+Please specify the dataset name, template name (same as step 1.)
+```
+./step2_run_get_cano_smarts.sh
+```
+
+3. **Get feasible centers**
+
+Please specify the dataset name, template name (same as step 1.), # cpus (the more the better)
+```
+./step3_run_find_centers.sh
+```
+
+4. **Get the support for the graphical model**
+
+Please specify the dataset name, template name (same as step 1.), # cpus (the more the better). A 40-core machine would get it done in 15min.
+```
+./step4_run_find_all_reactions.sh
+```
+
+5. **Get graph feature dumps**
+
+Please specify the dataset name, template name (same as step 1.)
+```
+./step5_run_dump_graphs.sh
+```
 
 
 # Reference
