@@ -5,7 +5,7 @@ https://papers.nips.cc/paper/9090-retrosynthesis-prediction-with-conditional-gra
 
 # Setup
 
-## Install package
+- ## Install package
 
 This package requires the **rdkit** and **pytorch**.
 
@@ -20,7 +20,7 @@ After the above preparation, simply navigate to the project root folder and inst
 
 Note that by default the cuda ops will not be enabled on Mac OSX.
 
-## Dropbox
+- ## Dropbox
 
 We provide the raw datasets, the cooked (data after preprocessing) datasets, and also the trained model dumps in a dropbox folder. 
 
@@ -53,6 +53,39 @@ GLN
 If you download the cooked data in the previous step, you can simply skip this step.
 
 Our paper mainly focused on schneider50k dataset. The raw data and data split is the same as https://github.com/connorcoley/retrosim/blob/master/retrosim/data/get_data.py
+
+Note that for both the reaction type unknown and type given experiments, we go throught the same steps as below. The only difference is the dataset name: **schneider50k** (type unknown) v.s. **typed_schneider50k** (type given)
+
+First go to the data processing folder:
+```
+cd gln/data_process
+```
+Then run the script in the following order:
+
+- **Get canonical smiles**
+
+Please specify the dataset name accordingly
+```
+./step0.0_run_get_cano_smiles.sh
+```
+
+- **Extract raw templates**
+
+Please specify the dataset name, as well as #cpu threads (the more the better). 
+```
+./step0.1_run_raw_template_extract.sh
+```
+
+1. **Filter template**
+
+One can filter out uncommon templates using this script. We didn't filter out any template in our paper, though a careful selection of templates may further improve the performance.
+
+Please specify the dataset name, template name (arbitrary one is fine), and possibly the minimum number of occurance one template needs to have in order to be included (default=1)
+
+```
+./step1_filter_template.sh
+```
+
 
 
 # Reference
