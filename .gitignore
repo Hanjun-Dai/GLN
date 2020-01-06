@@ -1,0 +1,16 @@
+*.egg-info/
+logwrite
+.DS_Store
+.module_log
+build/
+*.tar.gz
+.vscode/
+__pycache__/
+dropbox
+dropbox/
+*.so
+*.pkl
+
+*.ipynb_checkpoints/
+
+*-result/
