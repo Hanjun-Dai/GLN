@@ -114,6 +114,39 @@ Please specify the dataset name, template name (same as step 1.)
 ./step5_run_dump_graphs.sh
 ```
 
+# Training
+
+To train the model from scratch, first navigate to the training script folder
+```
+cd gln/training/scripts
+```
+Then run the default script `run_mf.sh` with the dataset name.
+- To run type unknown model, use `./run_mf.sh schneider50k`
+- To run type conditional model, use `./run_mf.sh typed_schneider50k`
+
+Usually ~10 x 3000 iterations would be able to get reasonable results that match the numbers in the paper.
+You are also welcome to tune any hyper-parameters or configurations in the script. 
+
+# Test
+
+First navigate to the test folder:
+```
+cd gln/test
+```
+1. **Reproducing results in the paper**
+
+To test the existing model dump in the dropbox, use the following commands:
+- To test pretrained type unknown model, use `./test_single.sh schneider50k`
+- To test pretrained type conditional model, use `./test_single.sh typed_schneider50k`
+
+You can also test whatever single model you want, by changing the `-model_for_test` argument to the model dump you want.
+
+2. **Pick models that trained from scratch with best validation**
+
+The best model is picked with best validation loss. To do so, first get the performance of all model dumps:
+- `./test_all.sh schneider50k YOUR_MODEL_DUMP_ROOT`
+- `python report_test_stats.py YOUR_MODEL_DUMP_ROOT`
+
 
 # Reference
 
