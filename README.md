@@ -1,7 +1,7 @@
 # GLN
 Implementation of Retrosynthesis Prediction with Conditional Graph Logic Network
 
-https://papers.nips.cc/paper/9090-retrosynthesis-prediction-with-conditional-graph-logic-network
+https://arxiv.org/abs/2001.01408
 
 # Setup
 
