@@ -48,6 +48,11 @@ GLN
 ...
 ```
 
+- **Remark: full USPTO dataset**
+
+We also released our cleaned USPTO dataset used in the paper via the above dropbox link (see `uspto_multi` folder under the dropbox folder). Meanwhile, the script for cleaning and de-duplication can be found under `gln/data_process/clean_uspto.py`. 
+The version of USPTO is `1976_Sep2016_USPTOgrants_smiles.rsmi` (which can also be found via above dropbox link). If you run the `clean_uspto.py` on this raw rsmi file, you are expected to get the same data split as we used in the paper.
+
 # Preprocessing
 
 If you download the cooked data in the previous step, you can simply skip this step.
