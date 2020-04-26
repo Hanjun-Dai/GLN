@@ -92,7 +92,7 @@ class GGNN(GNNEmbedding):
     def get_feat(self, graph_list):
         node_feat, edge_feat, edge_from_idx, edge_to_idx, g_idx = prepare_gnn(graph_list, self.is_cuda())
         edge_index = [edge_from_idx, edge_to_idx]
-
+        edge_index = torch.stack(edge_index)
         node_states = self.node2hidden(node_feat)
         init_embed = self.readout_funcs[-1](node_states)
         outs = self.readout_agg(init_embed, g_idx, dim=0, dim_size=len(graph_list))

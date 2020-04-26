@@ -81,6 +81,7 @@ class S2vMeanFieldV2(GNNEmbedding):
         cur_message_layer = input_potential
         all_embeds = [cur_message_layer]
         edge_index = [edge_from_idx, edge_to_idx]
+        edge_index = torch.stack(edge_index)        
         for lv in range(self.max_lv):
             node_linear = self.conv_layers[lv](cur_message_layer, edge_index)
             edge_linear = self.w_e2l[lv + 1](edge_feat)

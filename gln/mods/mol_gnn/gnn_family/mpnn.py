@@ -38,7 +38,7 @@ class MPNN(GNNEmbedding):
         out = self.act_func(self.lin0(node_feat))
         h = out.unsqueeze(0)
         edge_index = [edge_from_idx, edge_to_idx]
-
+        edge_index = torch.stack(edge_index)
         for lv in range(self.max_lv):
             m = self.act_func(self.conv(out, edge_index, edge_feat))
             out, h = self.gru(m.unsqueeze(0), h)

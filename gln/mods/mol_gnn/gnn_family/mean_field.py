@@ -74,6 +74,7 @@ class EmbedMeanField(GNNEmbedding):
         cur_message_layer = input_potential
         all_embeds = [cur_message_layer]
         edge_index = [edge_from_idx, edge_to_idx]
+        edge_index = torch.stack(edge_index)
         for lv in range(self.max_lv):
             node_linear = self.conv_layers[lv](cur_message_layer, edge_index)            
             merged_linear = node_linear + input_message
